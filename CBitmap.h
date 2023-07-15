@@ -53,7 +53,7 @@ public:
 		//agregando elemento al conjunto.
 		vBitmaps->Add(bmp);
 	}
-	Bitmap^ buscarBitmap(String^ name) {  //para obtener el "Bitmap^" deseado.
+	Bitmap^ searchBitmap(String^ name) {  //para obtener el "Bitmap^" deseado.
 
 		//recorriendo lista de que almacena CBitmap.
 		for (int i = 0; i < vBitmaps->Count; ++i) {
