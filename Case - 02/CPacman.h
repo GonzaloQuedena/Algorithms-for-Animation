@@ -8,7 +8,12 @@ class CPacman : public CEntidad {
 
 public:
 	CPacman(int x, int y)
-		: CEntidad(x, y), speed(12) {
+		: CEntidad(x, y), puntos(0), vidas(5), bono(false) {
+
+		save_X = x;
+		save_Y = y;
+
+		speed = save_speed = 12;
 
 		dx = speed;
 
@@ -49,8 +54,58 @@ public:
 		}
 	}
 
+	void procesarPintar(Graphics^ gr, Bitmap^ bmp) {
+
+		//pintando estadísticas de entidad.
+		__pintarStats(gr);
+		//pintando entidad.
+		pintar(gr, bmp);
+	}
+
+	void decrementarVidas() {
+		--vidas;
+	}
+
+	void incrementarPuntos() {
+		++puntos;
+	}
+
+	void regresarVelocidadNormal() {
+		speed = save_speed;
+	}
+	
+	void regresarPosicionInicial() {
+		x = save_X;
+		y = save_Y;
+	}
+
+	int getSaveSpeed() const {
+		return save_speed;
+	}
+
+	void setSpeed(int arg) {
+		speed = arg;
+	}
+
+	bool getBono() const {
+		return bono;
+	}
+
+	void setBono(bool arg) {
+		bono = arg;
+	}
+
 private:
-	int speed;
+	int vidas;
+	bool bono;
+	int speed, save_speed;
+	int puntos;
+	int save_X, save_Y;
+
+	void __pintarStats(Graphics^ gr) {
+		printS(gr, "VIDAS: " + vidas.ToString(), 14, 15, 10);
+		printS(gr, "PACDOTS: " + puntos.ToString(), 14, 115, 10);
+	}
 
 	void __actualizarIMG() {
 
