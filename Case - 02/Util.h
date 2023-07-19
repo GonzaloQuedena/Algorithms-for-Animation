@@ -19,5 +19,9 @@ int nextInt(int min, int max) {
 	//generamos valor aleatorio entre "min-max".
 	return min + rand() % ((max + 1) - min);
 }
+void printS(Graphics^gr, String^ out, int size, int x, int y) {
+	gr->DrawString(out, gcnew System::Drawing::Font("Times New Roman", size),
+		gcnew System::Drawing::SolidBrush(System::Drawing::Color::Black), x, y);
+}
 
 #endif

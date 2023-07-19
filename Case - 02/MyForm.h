@@ -41,7 +41,7 @@ namespace PACMAN {
 
 			delete control;
 		}
-	private: 
+	private:
 		System::Windows::Forms::Timer^ clock;
 		System::ComponentModel::IContainer^ components;
 
@@ -71,7 +71,7 @@ namespace PACMAN {
 		}
 
 #pragma endregion
-		
+
 		//métodos propios.
 	private: void InitializeBufferedGraphics() {
 		gr = this->CreateGraphics();
@@ -88,6 +88,12 @@ namespace PACMAN {
 
 		MemoryStream^ fantasma = urlConvertedToImage("https://raw.githubusercontent.com/GonzaloQuedena/Algorithms-for-Animation/main/Sprites/ghosts.png");
 		bitmaps->add_bitmap(gcnew CBitmap("fantasma", fantasma));
+
+		MemoryStream^ pacdot = urlConvertedToImage("https://raw.githubusercontent.com/GonzaloQuedena/Algorithms-for-Animation/main/Sprites/pacdot.png");
+		bitmaps->add_bitmap(gcnew CBitmap("pacdot", pacdot));
+
+		MemoryStream^ bono = urlConvertedToImage("https://raw.githubusercontent.com/GonzaloQuedena/Algorithms-for-Animation/main/Sprites/pacman-bonus.png");
+		bitmaps->add_bitmap(gcnew CBitmap("bono", bono));
 	}
 	private: void PintarBackground() {
 		//pintando fondo de formulario.

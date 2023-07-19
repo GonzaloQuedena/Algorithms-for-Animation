@@ -28,7 +28,8 @@ public:
 		if (x + dx < 0 || x + area().Width + dx > gr->VisibleClipBounds.Width) {
 			dx *= -1;
 		}
-		if (y + dy < 0 || y + area().Height + dy > gr->VisibleClipBounds.Height) {
+
+		if (y + dy < 25 || y + area().Height + dy > gr->VisibleClipBounds.Height) {
 			dy *= -1;
 		}
 
@@ -41,8 +42,17 @@ public:
 	}
 
 	//métodos de acceso.
+
+	//gets.
 	string getEntidad() const {
 		return entidad;
+	}
+	bool getVisible() const {
+		return visible;
+	}
+	//sets.
+	void setVisible(bool arg) {
+		visible = arg;
 	}
 
 protected:
@@ -56,7 +66,6 @@ protected:
 	float zoom;
 
 	bool visible;
-
 	string entidad;
 
 	//métodos de clase PRIVADOS.
